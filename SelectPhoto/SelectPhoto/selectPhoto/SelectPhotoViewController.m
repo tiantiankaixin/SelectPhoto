@@ -146,8 +146,9 @@
     SPhotoModel *model = self.dataSource[indexPath.row];
     model.isSelect = !model.isSelect;
     [self updateFirstBtnState];
-    NSIndexPath *path = [NSIndexPath indexPathForItem:indexPath.row inSection:0];
-    [self.collectionView reloadItemsAtIndexPaths:@[path]];
+    [self.collectionView reloadData];
+    
+    [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
 
 #pragma mark - 更新第一个按钮的状态
